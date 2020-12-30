@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User {{ user[1] }}</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('static', filename='images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav>
+            <i class="fas fa-plane-departure logo"></i>
+
+           
+            <div class="user">
+                <a class="username" href="{{ url_for('home') }}">Main Page</a>
+
+                <a class="signout-button" href="{{ url_for('logout') }}">Sign Out</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="avatar">
+            <i class="fas fa-user-circle"></i>
+            <h1>{{ user[1] }}</h1>
+        </div>
+
+        <div class="info">
+            <div class="info-user">
+                <p><span>Username:</span> {{ user[1] }}</p>
+                <p><span>Email:</span> {{ user[3] }}</p>
+                <p><span>Total:</span> {{ full_price }}$</p>
+            </div>
+
+            <div class="info-flights">
+                <h2>
+                    <span>
+                        <i class="fas fa-id-card"></i>
+                    </span>
+                    Reservations
+                </h2>
+                {% for flight in f %}
+                        <div class="f">
+                            <div class="f-left">
+                                <p>{{ flight[2] }} - {{ flight[3] }} ( {{ flight[1] }} )</p>
+                                <p>Date: {{ flight[4] }}</p>
+                                <p>Price: {{ flight[6] }}$</p>
+                            </div>
+                            <div class="f-right">
+                                <a href="{{ url_for('delete_reservation', id=flight[0]) }}">
+                                    <i class="delete fas fa-trash-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

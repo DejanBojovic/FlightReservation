@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('static', filename='images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav>
+            <i class="fas fa-plane-departure logo"></i>
+
+            <div class="user">
+                <a class="username" href="{{ url_for('admin') }}">admin</a>
+                <a class="signout-button" href="{{ url_for('logout') }}">Sign Out</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="avatar">
+            <i class="fas fa-user-circle"></i>
+            <h1>{{ user[1] }}</h1>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p class="msg-add-flight">{{ msg }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="form-container">
+            <h2>
+                <span>
+                    <i class="fas fa-plane-departure"></i>
+                </span>
+                Add Flight
+            </h2>
+            <form action="" method="post" class="add-flight">
+                <label><span>Direction:</span>
+                    <select name="direction">
+                        <option value="one way">One way</option>
+                        <option value="roundtrip">Roundtrip</option>
+                    </select>
+                </label>
+    
+                <label>
+                    <span>From:</span>
+                    <input type="text" name="from">
+                </label>
+                <label>
+                    <span>To:</span>
+                    <input type="text" name="to">
+                </label>
+    
+                <label><span>Date:</span>
+                    <input type="datetime-local" name="date">
+                </label>
+    
+                <label>
+                    <span>Passengers:</span>
+                    <input type="number" name="passengers" value="1">
+                </label>
+    
+                <label>
+                    <span>Price:</span>
+                    <input type="number" name="price" value="0" step="any">
+                </label>
+    
+                <input type="submit" value="Submit">
+                
+            </form>
+        </div>
+
+    </main>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector(".msg-add-flight").style.display = "none"
+        }, 3000)
+    </script>
+</body>
+</html>

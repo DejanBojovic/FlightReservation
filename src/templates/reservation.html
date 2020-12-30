@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('static', filename='images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav>
+            <i class="fas fa-plane-departure logo"></i>
+
+            <div class="user">
+                <a class="username" href="{{ url_for('user') }}">{{ user[1] }}</a>
+
+                <a class="signout-button" href="{{ url_for('logout') }}">Sign Out</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h1>{{ x }}</h1>
+    </main>
+
+    <!-- <script src="{{ url_for('static', filename='js/msg.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel='shortcut icon' type='image/x-icon' href="{{ url_for('static', filename='images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav>
+            <i class="fas fa-plane-departure logo"></i>
+
+            <div class="user">
+                <a class="username" href="{{ url_for('admin') }}">admin</a>
+                <a class="signout-button" href="{{ url_for('logout') }}">Sign Out</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="avatar">
+            <i class="fas fa-user-circle"></i>
+            <h1>{{ user[1] }}</h1>
+        </div>
+
+        <div class="form-container">
+            <h2>
+                <span>
+                    <i class="fas fa-money-check-alt"></i>
+                </span>
+                Change Price
+            </h2>
+            <form action="" method="post" class="price-change">
+                <h3>{{ flight[2] }} - {{ flight[3] }} ( {{ flight[1] }} )</h3>
+                <p>Date: {{ flight[4] }}</p>
+                <p>Seats: {{ flight[5] }}</p>
+                <input type="text" name="price" value="{{ flight[6] }}">
+                <input type="submit">
+            </form>
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>
