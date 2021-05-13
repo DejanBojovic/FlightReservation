@@ -3,6 +3,8 @@
 Glavna ideja projekta je da se korisiniku omogući lakša rezervacija avionskih karata, kao i bolji pregled svih dostupnih letova za iste. 
 Aplikacija treba da prikupi informacije od korisnika i prosledi odgovarajuće letove za traženu pretragu.
 
+![fr-1](https://user-images.githubusercontent.com/50273754/118128468-37d80800-b3fb-11eb-806e-f3ec16e5a4fd.png)
+
 Administracija će sa druge strane imati potpuni pregled informacija korisnika u Admin panelu. 
 Admin panel omogućava bolju kontrolu, preglednost i funkcionisanje same aplikacije. Pristum admin panelu omogućava i modifikaciju dostupnih informacija.
 
